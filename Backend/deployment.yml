@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 3  # You can adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: tahirrida/ine-authentication-springboot  # Updated image name
+        ports:
+        - containerPort: 8080  # Port your Spring Boot app is listening on
